@@ -1,14 +1,17 @@
 package com.example.springlearning.aopApplication.services.impl;
 
+import com.example.springlearning.aopApplication.aspect.MyLogging;
 import com.example.springlearning.aopApplication.services.ShipmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Service
 public class ShipmentServiceImpl implements ShipmentService {
 
     @Override
+    @MyLogging
     public String orderPackage(Long orderId) {
         try {
             log.info("Processing the order...");
@@ -20,6 +23,7 @@ public class ShipmentServiceImpl implements ShipmentService {
     }
 
     @Override
+    @Transactional
     public String trackPackage(Long orderId) {
         try {
             log.info("Tracking the order...");
