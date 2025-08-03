@@ -1,10 +1,11 @@
 package com.example.springlearning.aopApplication.services.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
+@Slf4j
 @SpringBootTest
 class ShipmentServiceImplTest {
 
@@ -13,11 +14,13 @@ class ShipmentServiceImplTest {
 
     @Test
     void aopTestOrderPackage() {
-        shipmentService.orderPackage(4L);
+        String orderString = shipmentService.orderPackage(4L);
+        log.info(orderString);
     }
 
     @Test
     void aopTestTrackPackage() {
-        shipmentService.trackPackage(4L);
+        String orderString = shipmentService.trackPackage(4L);
+        log.info(orderString);
     }
 }
